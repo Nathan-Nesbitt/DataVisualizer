@@ -1,6 +1,7 @@
 # Data Visualizer
 
-A simple data visualization tool using React and TypeScript.
+A simple data visualization tool using React and TypeScript. This was written
+on a Windows box.
 
 ## Setup
 
