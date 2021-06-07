@@ -1,0 +1,30 @@
+{
+  "name": "datavisualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node build/index.js",
+    "dev": "ts-node-dev index.ts",
+    "build": "npx tsc",
+    "build-all-linux": "cd frontend && npm run build-linux && cd .. && npm run build",
+    "build-all-windows": "cd frontend && npm run build-windows && cd .. && npm run build"
+  },
+  "author": "Nathan Nesbitt",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@nivo/core": "^0.70.1",
+    "@nivo/line": "^0.70.1",
+    "@types/express": "^4.17.12",
+    "@types/react": "^17.0.9",
+    "express": "^4.17.1",
+    "nivo": "^0.31.0",
+    "pg": "^8.6.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.6"
+  }
+}
