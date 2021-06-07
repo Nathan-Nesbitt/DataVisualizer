@@ -15,7 +15,6 @@ export class Server {
 
         this.mainController = new MainController();
 
-        // if(process.argv.includes("production"))
         console.log(__dirname)
 
         this.app.get("/api", (req: Request, res: Response): void => {
