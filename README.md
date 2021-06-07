@@ -4,6 +4,12 @@ A simple data visualization tool using React and TypeScript.
 
 ## Setup
 
+To install the dependencies for both the front and back end you simply need to 
+start in the root, run `npm install`. Then go into the `frontend` directory and
+run `npm install`.
+
+You will need to update the `backend/DB.ts` file to the username and password for the database. It **must be escaped** for example `\` must be `\\`. 
+
 ## Build
 
 To build the whole application on windows you can simply run 
