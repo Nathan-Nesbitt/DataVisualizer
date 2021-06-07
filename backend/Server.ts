@@ -18,8 +18,6 @@ export class Server {
         // if(process.argv.includes("production"))
         console.log(__dirname)
 
-        app.use(express.static(path.join(__dirname, 'build')));
-
         this.app.get("/api", (req: Request, res: Response): void => {
             res.send("REST API V0.0.1");
         });
@@ -32,11 +30,14 @@ export class Server {
 
         this.app.get("/api/summary", this.mainController.summary);
 
-
-
-        this.app.get("*", (req: Request, res: Response): void => {
-            res.sendFile(path.resolve("./") + "/build/frontend/index.html");
-        });
+        if (process.env.PRODUCTION) {
+            // Serve any static files
+            app.use(express.static(path.join(__dirname, '/../../frontend/build')));
+            // Handle React routing, return all requests to React app
+            app.get('*', function (req, res) {
+                res.sendFile(path.join(__dirname, '/../../frontend/build', 'index.html'));
+            });
+        }
     }
 
     public start(port: number): void {

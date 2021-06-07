@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node build/index.js",
+    "start": "PRODUCTION=TRUE npx ts-node build/index.js",
+    "start-windows": "set PRODUCTION=TRUE && npx ts-node build/index.js",
+    "start-linux": "PRODUCTION=TRUE npx ts-node build/index.js",
     "dev": "ts-node-dev index.ts",
     "build": "npx tsc",
-    "build-all-linux": "cd frontend && npm run build-linux && cd .. && npm run build",
-    "build-all-windows": "cd frontend && npm run build-windows && cd .. && npm run build"
+    "build-all": "cd frontend && npm run build && cd .. && npm run build"
   },
   "author": "Nathan Nesbitt",
   "license": "ISC",
