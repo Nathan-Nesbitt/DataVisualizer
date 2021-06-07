@@ -27,7 +27,11 @@ type DropdownItem = {
 }
 
 
-
+/**
+ * Requests the data for the dropdown. 
+ * @param location - Where the dropdown api endpoint is
+ * @returns array of dropdown items
+ */
 function get_data(location: string): Promise<DropdownItem[]> {
 
     return fetch(location)
@@ -48,6 +52,17 @@ type MultipleDropdownProps = {
     parentState?: string
 }
 
+/**
+ * This is a dropdown with dependency of another dropdown. It can be used to 
+ * selectively render and request data based on the previous dropdown.
+ * 
+ * @param title - Name of the component. Displays in dropdown
+ * @param location - Where the API endpoint is to get the data for the component
+ * @param updateGraph - Function to update the parent function. In this case a graph. 
+ * @param setParentState - Function to update the value of the decedent element
+ * @param parentState - Value provided by the predecessor of this element.
+ * @returns FormControl dropdown element
+ */
 const MultipleDropdown: FunctionComponent<MultipleDropdownProps> = ({ title, location, updateGraph, setParentState, parentState }) => {
 
     const classes = useStyles();
@@ -76,7 +91,7 @@ const MultipleDropdown: FunctionComponent<MultipleDropdownProps> = ({ title, loc
     })
 
     // This handles the case that only parentState changes, as we don't always 
-    // want to run.
+    // want to run. 
     useEffect(() => {
         get_data(location + "?serial_number=" + parentState)
             .then((result) => {

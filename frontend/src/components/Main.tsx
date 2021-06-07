@@ -9,6 +9,14 @@ type Data = {
     x: Date
 }[];
 
+/**
+ * Function that makes requests to the API for graph data.
+ * 
+ *  
+ * @param value - Name for the line on the graph, normally ID.
+ * @param location - Location to request the data from.
+ * @returns Promise - Promise that will contain array of data in {x, y} format
+ */
 function get_data(value: string, location: string): Promise<{ id: string, data: Data }> {
 
     return fetch(location)
@@ -44,7 +52,6 @@ const Main = () => {
         get_data(value, location)
             .then(result => {
                 setData(result)
-                console.log(result)
             })
             .catch(err => {
                 console.log(err)

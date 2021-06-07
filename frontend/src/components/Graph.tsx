@@ -15,6 +15,14 @@ type GraphProps = {
     }[]
 };
 
+/**
+ * Basic graph object that displays data generated from the database.
+ * 
+ * Must be used in a div with defined hight and width.
+ * 
+ * @param data - Array of objects that contain x and y values. 
+ * @returns ResponsiveLine object.
+ */
 const Graph: FunctionComponent<GraphProps> = ({ data }) => <ResponsiveLine
     data={data}
     margin={{ top: 30, right: 110, bottom: 135, left: 60 }}
